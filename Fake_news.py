@@ -15,6 +15,13 @@ CPU parallelization via joblib.
 Integration routines done using Monte Carlo.
 Main program begins ~line 650
 
+For faster, but more inaccurate, computation reduce MC_integration_outer_steps, 
+MC_integration_inner_steps, as well as Ngrid.
+
+In main program choose between mode 'cloud' (main number crunching, useful if cloud server is used);
+'laptop' (main plotting, useful if results have been downloaded from cloud server);
+'single location' (both number crunching and plotting carried out on same machine).
+
 """
 
 
@@ -750,7 +757,6 @@ print(total_time)
 
 if location == 'laptop' or location == 'single location':
     plotting_pred_all()
-
 
 endvar = time.time()
 print(endvar-start)
