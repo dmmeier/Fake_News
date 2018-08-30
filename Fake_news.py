@@ -18,6 +18,9 @@ Main program begins ~line 650
 For faster, but more inaccurate, computation reduce MC_integration_outer_steps, 
 MC_integration_inner_steps, as well as Ngrid.
 
+The inner loop of the MC computations goes through MC_integration_inner_steps at a time
+using vectorization.
+
 In main program choose between mode 'cloud' (main number crunching, useful if cloud server is used);
 'laptop' (main plotting, useful if results have been downloaded from cloud server);
 'single location' (both number crunching and plotting carried out on same machine).
@@ -760,24 +763,3 @@ if location == 'laptop' or location == 'single location':
 
 endvar = time.time()
 print(endvar-start)
-
-
-    
-    
-    
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-
-
-
-
-
